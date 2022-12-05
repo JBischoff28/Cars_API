@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# url endpoints that relate to the entire project rather than just the app
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/cars/', include('cars.urls')),

@@ -3,6 +3,7 @@
 import os
 import sys
 
+# File that allows us to manage the entire project. Gives access to many very useful terminal commands
 
 def main():
     """Run administrative tasks."""
