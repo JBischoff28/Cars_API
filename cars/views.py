@@ -18,7 +18,7 @@ def cars_list(request): # Backend code to correctly allow a user to view all car
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def car_details(request, pk): # Allows user to correctly access and update a single car's details
     
     car = get_object_or_404(Car, pk=pk)
@@ -31,6 +31,9 @@ def car_details(request, pk): # Allows user to correctly access and update a sin
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    elif request.method == 'DELETE':
+        car.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
     """ #This is the normal way to do it without shortcuts#
